@@ -53,4 +53,3 @@ The APK will be generated at:
 ## Assets
 - The internal word list is pre-generated in `app/src/main/assets/words.js`.
 - Replace `app/src/main/assets/clack.mp3` with your own sound file if desired.
-# splitflap-display-android
