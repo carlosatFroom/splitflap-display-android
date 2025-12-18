@@ -15,6 +15,9 @@ Splitflap Display, courtesy of https://www.youtube.com/@dave.madison
 - `app/src/main/assets/`: Contains the core logic (HTML, CSS, JS) and sound files.
 - `app/src/main/java/`: Native Android WebView implementation.
 
+You can visualize the UI of the project by opening the `app/src/main/assets/index.html` file in a web browser.
+![UI](./UI.jpg)
+
 ## Build Instructions
 
 ### Prerequisites
