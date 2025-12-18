@@ -2,6 +2,7 @@
 
 A high-fidelity Android application simulating a mechanical split-flap display. It features realistic 3D animations, sequential character cycling, and polyphonic "clack" sounds.
 
+![Splitflap Display, courtesy of https://www.youtube.com/@dave.madison](./splitflapdisplay.jpg)
 ## Features
 - **Realistic Animation**: HTML/CSS 3D transforms wrapped in a high-performance native WebView.
 - **Authentic Logic**: Flaps rotate sequentially through the alphabet to reach the target letter.

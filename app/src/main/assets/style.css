@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Roboto Mono', monospace;
+    overflow: hidden;
+}
+
+.frame {
+    background-color: #d32f2f;
+    /* Red frame */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid #b71c1c;
+}
+
+.display-container {
+    display: flex;
+    gap: 8px;
+}
+
+/* Split Flap Character Container */
+.split-flap {
+    width: 60px;
+    height: 100px;
+    position: relative;
+    background-color: #333;
+    perspective: 300px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px #000;
+}
+
+/* Base Card Style */
+.card,
+.flap {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    background-color: #222;
+    color: #fff;
+    left: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Inner Text Span Positioning */
+.card span,
+.flap span {
+    display: block;
+    height: 100px;
+    width: 100%;
+    font-size: 80px;
+    line-height: 100px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Top Halves */
+.top {
+    top: 0;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transform-origin: bottom;
+}
+
+.top span {
+    transform: translateY(0);
+}
+
+/* Bottom Halves */
+.bottom {
+    top: 50%;
+    border-radius: 0 0 4px 4px;
+    transform-origin: top;
+}
+
+.bottom span {
+    transform: translateY(-50px);
+}
+
+/* Flap Specifics */
+.flap {
+    z-index: 10;
+    transform-style: preserve-3d;
+}
+
+.flap.bottom {
+    transform: rotateX(90deg);
+    /* Start hidden */
+}
+
+/* 
+   Matched to JS FLIP_SPEED of 150ms 
+   Total animation time <= 150ms
+*/
+.animating .flap.top {
+    animation: flipTop 0.075s ease-in forwards;
+}
+
+.animating .flap.bottom {
+    animation: flipBottom 0.075s ease-out 0.075s forwards;
+}
+
+@keyframes flipTop {
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    100% {
+        transform: rotateX(-90deg);
+    }
+}
+
+@keyframes flipBottom {
+    0% {
+        transform: rotateX(90deg);
+    }
+
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+/* Cut line visual */
+.split-flap::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 20;
+}
